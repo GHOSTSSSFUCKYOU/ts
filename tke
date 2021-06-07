@@ -618,7 +618,7 @@ Commands["| aim, s, aimbot, shoot, aimlock, a -|- Sets Aimbot Target |"] = {
     end
 }
 Commands["| unaim, uns, unaimbot, unshoot -|- UnAimbots Aimbotted Target |"] = {
-    ["Aliases"] = {"unaim", "uns", "unaimbot", "unshoot"},
+    ["Aliases"] = {"unaim", "una", "unaimbot", "unshoot"},
     ["Function"] = function()
         AimbotTarget = nil
         Aimbot = false
