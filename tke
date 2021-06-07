@@ -589,8 +589,8 @@ Commands["| r, reset, re, res -|- Resets Your Character |"] = {
         ResetCharacter()
     end
 }
-Commands["| cam, camlock, cl, cml -|- Sets Camlock Target |"] = {
-    ["Aliases"] = {"camlock", "cam", "cl", "cml"},
+Commands["| cam, camlock, cl, cml, c -|- Sets Camlock Target |"] = {
+    ["Aliases"] = {"camlock", "cam", "cl", "cml", "c"},
     ["Function"] = function(Args)
         if Args[1] then
             CamlockTarget = SearchPlayers(Args[1])
@@ -599,16 +599,16 @@ Commands["| cam, camlock, cl, cml -|- Sets Camlock Target |"] = {
         Notify("LurkTek", "Camlock Target: " .. tostring(CamlockTarget), "", 3)
     end
 }
-Commands["| uncam, uncamlock, uncl, uncml -|- UnCamlocks Camlocked Target |"] = {
-    ["Aliases"] = {"uncamlock", "uncam", "uncl", "uncml"},
+Commands["| uncam, uncamlock, uncl, uncml, unc-|- UnCamlocks Camlocked Target |"] = {
+    ["Aliases"] = {"uncamlock", "uncam", "uncl", "uncml", "unc"},
     ["Function"] = function()
         CamlockTarget = nil
         Camlock = false
         Notify("LurkTek", "Camlock: " .. tostring(Camlock), "", 3)
     end
 }
-Commands["| aim, s, aimbot, shoot, aimlock -|- Sets Aimbot Target |"] = {
-    ["Aliases"] = {"aim", "s", "aimbot", "shoot", "aimlock"},
+Commands["| aim, s, aimbot, shoot, aimlock, a -|- Sets Aimbot Target |"] = {
+    ["Aliases"] = {"aim", "s", "aimbot", "shoot", "aimlock", "a"},
     ["Function"] = function(Args)
         if Args[1] then
             AimbotTarget = SearchPlayers(Args[1])
