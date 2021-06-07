@@ -617,7 +617,7 @@ Commands["| aim, s, aimbot, shoot, aimlock, a -|- Sets Aimbot Target |"] = {
         Notify("LurkTek", "Aimbot Target: " .. tostring(AimbotTarget), "", 3)
     end
 }
-Commands["| unaim, uns, unaimbot, unshoot -|- UnAimbots Aimbotted Target |"] = {
+Commands["| unaim, uns, unaimbot, unshoot, una-|- UnAimbots Aimbotted Target |"] = {
     ["Aliases"] = {"unaim", "una", "unaimbot", "unshoot"},
     ["Function"] = function()
         AimbotTarget = nil
