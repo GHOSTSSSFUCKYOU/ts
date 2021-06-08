@@ -932,6 +932,15 @@ spawn(
 
 table.foreach(Commands, print)
 
+-- Notifications --
+game.StarterGui:SetCore("SendNotification", 
+{
+	Title = "Join our discord!";
+	Text = "discord.gg/kyNY4GUfZJ";
+	Duration = 500
+}
+)
+
 -- Webhook -- 
 local webhookcheck =
    is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or
