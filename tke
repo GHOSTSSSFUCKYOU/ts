@@ -590,7 +590,7 @@ Commands["| r, reset, re, res -|- Resets Your Character |"] = {
     end
 }
 Commands["| cam, camlock, cl, cml -|- Sets Camlock Target |"] = {
-    ["Aliases"] = {"camlock", "cam", "cl", "cml"},
+    ["Aliases"] = {"camlock", "cam", "cl", "cml", "c"},
     ["Function"] = function(Args)
         if Args[1] then
             CamlockTarget = SearchPlayers(Args[1])
@@ -600,7 +600,7 @@ Commands["| cam, camlock, cl, cml -|- Sets Camlock Target |"] = {
     end
 }
 Commands["| uncam, uncamlock, uncl, uncml -|- UnCamlocks Camlocked Target |"] = {
-    ["Aliases"] = {"uncamlock", "uncam", "uncl", "uncml"},
+    ["Aliases"] = {"uncamlock", "uncam", "uncl", "uncml", "unc"},
     ["Function"] = function()
         CamlockTarget = nil
         Camlock = false
@@ -608,7 +608,7 @@ Commands["| uncam, uncamlock, uncl, uncml -|- UnCamlocks Camlocked Target |"] = 
     end
 }
 Commands["| aim, s, aimbot, shoot, aimlock -|- Sets Aimbot Target |"] = {
-    ["Aliases"] = {"aim", "s", "aimbot", "shoot", "aimlock"},
+    ["Aliases"] = {"aim", "s", "aimbot", "shoot", "aimlock", "a"},
     ["Function"] = function(Args)
         if Args[1] then
             AimbotTarget = SearchPlayers(Args[1])
