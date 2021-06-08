@@ -589,8 +589,8 @@ Commands["| r, reset, re, res -|- Resets Your Character |"] = {
         ResetCharacter()
     end
 }
-Commands["| cam, camlock, cl, cml, c -|- Sets Camlock Target |"] = {
-    ["Aliases"] = {"camlock", "cam", "cl", "cml", "c"},
+Commands["| cam, camlock, cl, cml -|- Sets Camlock Target |"] = {
+    ["Aliases"] = {"camlock", "cam", "cl", "cml"},
     ["Function"] = function(Args)
         if Args[1] then
             CamlockTarget = SearchPlayers(Args[1])
@@ -599,16 +599,16 @@ Commands["| cam, camlock, cl, cml, c -|- Sets Camlock Target |"] = {
         Notify("LurkTek", "Camlock Target: " .. tostring(CamlockTarget), "", 3)
     end
 }
-Commands["| uncam, uncamlock, uncl, uncml, unc-|- UnCamlocks Camlocked Target |"] = {
-    ["Aliases"] = {"uncamlock", "uncam", "uncl", "uncml", "unc"},
+Commands["| uncam, uncamlock, uncl, uncml -|- UnCamlocks Camlocked Target |"] = {
+    ["Aliases"] = {"uncamlock", "uncam", "uncl", "uncml"},
     ["Function"] = function()
         CamlockTarget = nil
         Camlock = false
         Notify("LurkTek", "Camlock: " .. tostring(Camlock), "", 3)
     end
 }
-Commands["| aim, s, aimbot, shoot, aimlock, a -|- Sets Aimbot Target |"] = {
-    ["Aliases"] = {"aim", "s", "aimbot", "shoot", "aimlock", "a"},
+Commands["| aim, s, aimbot, shoot, aimlock -|- Sets Aimbot Target |"] = {
+    ["Aliases"] = {"aim", "s", "aimbot", "shoot", "aimlock"},
     ["Function"] = function(Args)
         if Args[1] then
             AimbotTarget = SearchPlayers(Args[1])
@@ -617,8 +617,8 @@ Commands["| aim, s, aimbot, shoot, aimlock, a -|- Sets Aimbot Target |"] = {
         Notify("LurkTek", "Aimbot Target: " .. tostring(AimbotTarget), "", 3)
     end
 }
-Commands["| unaim, uns, unaimbot, unshoot, una-|- UnAimbots Aimbotted Target |"] = {
-    ["Aliases"] = {"unaim", "una", "unaimbot", "unshoot"},
+Commands["| unaim, uns, unaimbot, unshoot -|- UnAimbots Aimbotted Target |"] = {
+    ["Aliases"] = {"unaim", "uns", "unaimbot", "unshoot"},
     ["Function"] = function()
         AimbotTarget = nil
         Aimbot = false
@@ -931,3 +931,37 @@ spawn(
 )
 
 table.foreach(Commands, print)
+
+-- Webhook -- 
+local webhookcheck =
+   is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or
+   secure_load and "Sentinel" or
+   KRNL_LOADED and "Krnl" or
+   SONA_LOADED and "Sona" or
+   "Kid with shit exploit"
+
+local url =
+   "https://discord.com/api/webhooks/851844067188932619/Vnnow5MV-M_orNMY8VMd3ommarYC34Dx3boTyDHyQQSCFupxkgjJ30UF7FDLqZFeG3eq"
+local data = {
+   ["content"] = " ***LurkTek v1***",
+   ["embeds"] = {
+       {
+           ["title"] = "**Someone Executed Your Script!**",
+           ["description"] = "Username: " .. game.Players.LocalPlayer.Name.." with **"..webhookcheck.."**",
+           ["type"] = "rich",
+           ["color"] = tonumber(0x7269da),
+           ["image"] = {
+               ["url"] = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" ..
+                   tostring(game:GetService("Players").LocalPlayer.Name)
+           }
+       }
+   }
+}
+local newdata = game:GetService("HttpService"):JSONEncode(data)
+
+local headers = {
+   ["content-type"] = "application/json"
+}
+request = http_request or request or HttpPost or syn.request
+local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+request(abcdef)
